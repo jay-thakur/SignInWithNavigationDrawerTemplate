@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "753471595207",
+    "firebase_url": "https://signin-with-navigation-drawer.firebaseio.com",
+    "project_id": "signin-with-navigation-drawer",
+    "storage_bucket": "signin-with-navigation-drawer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753471595207:android:d0f96a4dc70ce2bf",
+        "android_client_info": {
+          "package_name": "com.appniche.signinwithnavigationdrawertemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753471595207-lil6jgvj4dh2gm2hakhbpcnrp41ebrrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrsbgobIsel2ohB605pKuJjoD7SFQgJy8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
