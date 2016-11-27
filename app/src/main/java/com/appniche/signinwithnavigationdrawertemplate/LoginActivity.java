@@ -45,15 +45,16 @@ public class LoginActivity extends AppCompatActivity {
                     // No user is signed in or User is signed out
                     Log.d(LOG_TAG, "onAuthStateChanged:signed_out");
                     startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setIsSmartLockEnabled(false)
-                                    .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
-                                            new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
-                                            new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
-                                            new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()))
-                                    .build(),
-                            RC_SIGN_IN);
+                        AuthUI.getInstance()
+                                .createSignInIntentBuilder()
+                                .setIsSmartLockEnabled(false)
+                                .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+                                        new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+                                        new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
+                                        new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()))
+                                .build(),
+                        RC_SIGN_IN
+                    );
                 }
             }
         };
