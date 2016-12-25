@@ -12,8 +12,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
 
-import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
-
 public class LoginActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = LoginActivity.class.getSimpleName();
