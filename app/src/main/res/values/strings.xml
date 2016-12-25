@@ -8,4 +8,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_import_fragment">Hello from import fragment</string>
+    <string name="hello_gallary_fragment">Hello from Gallary fragment</string>
+    <string name="hello_slideshow_fragment">Hello from Slide Show fragment</string>
+    <string name="hello_tools_fragment">Hello from Tools fragment</string>
 </resources>
