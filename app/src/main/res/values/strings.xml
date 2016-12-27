@@ -12,4 +12,7 @@
     <string name="hello_gallary_fragment">Hello from Gallary fragment</string>
     <string name="hello_slideshow_fragment">Hello from Slide Show fragment</string>
     <string name="hello_tools_fragment">Hello from Tools fragment</string>
+
+    <string name="share_subject">Download This Sample App</string>
+    <string name="share_body">Here is the share content body</string>
 </resources>

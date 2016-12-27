@@ -1,5 +1,8 @@
 package com.appniche.signinwithnavigationdrawertemplate;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -89,41 +92,66 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
-        Class fragmentClass;
+        Class fragmentClass = null;
 
         int id = item.getItemId();
 
-        switch(id){
-            case R.id.nav_camera:
-                fragmentClass = ImportFragment.class;
-                break;
-            case R.id.nav_gallery:
-                fragmentClass = GallaryFragment.class;
-                break;
-            case R.id.nav_slideshow:
-                fragmentClass = SlideshowFragment.class;
-                break;
-            case R.id.nav_manage:
-                fragmentClass = ToolsFragment.class;
-                break;
-            default:
-                fragmentClass = MainActivityFragment.class;
+        if(id == R.id.nav_share)
+            share();
+        else {
+            switch(id){
+                case R.id.nav_camera:
+                    fragmentClass = ImportFragment.class;
+                    break;
+                case R.id.nav_gallery:
+                    fragmentClass = GallaryFragment.class;
+                    break;
+                case R.id.nav_slideshow:
+                    fragmentClass = SlideshowFragment.class;
+                    break;
+                case R.id.nav_manage:
+                    fragmentClass = ToolsFragment.class;
+                    break;
+                default:
+                    fragmentClass = MainActivityFragment.class;
+            }
+
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+            setTitle(item.getTitle());
         }
-
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-        setTitle(item.getTitle());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
+
+    public void share(){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareSubject = getResources().getString(R.string.share_subject);
+        String shareBody = getResources().getString(R.string.share_body);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSubject);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
+
+    /*public void launchMarket() {
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(myAppLinkToMarket);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.launchMarket_failed, Toast.LENGTH_LONG).show();
+        }
+    }*/
 }
